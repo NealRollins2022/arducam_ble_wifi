@@ -1,18 +1,14 @@
-# CMakeLists.txt for Arducam module (C:\ncs\v2.7.0\modules\arducamnord\CMakeLists.txt)
+# No Kconfig guard needed — driver is always built when module is included
 
-if(CONFIG_VIDEO_ARDUCAM_NORD)
-  # Add include directory for drivers/video/arducam_nord.h
-  target_include_directories(zephyr_interface BEFORE INTERFACE
-    ${ZEPHYR_CURRENT_MODULE_DIR}/include
-  )
+# Add include directory for headers (e.g., <drivers/video/arducam_nord.h>)
+zephyr_include_directories(${ZEPHYR_CURRENT_MODULE_DIR}/include)
 
-  # Include driver source file (updated path)
-  zephyr_library_sources(
-    ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/arducam_nord/arducam_nord.c
-  )
+# Include the driver source
+zephyr_library_sources(
+    drivers/video/arducam_nord/arducam_nord.c
+)
 
-  # Add drivers/video subdirectory only if it contains a CMakeLists.txt
-  if(EXISTS ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/CMakeLists.txt)
+# If you have a CMakeLists.txt in drivers/video/, include it
+if(EXISTS ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/CMakeLists.txt)
     add_subdirectory(drivers/video)
-  endif()
 endif()
