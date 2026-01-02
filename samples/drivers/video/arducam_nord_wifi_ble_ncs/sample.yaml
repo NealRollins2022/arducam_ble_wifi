@@ -1,0 +1,20 @@
+sample:
+  description: Build test for Arducam NORD SPI camera driver (Nordic Playground off-tree port) on nRF5340 DK.
+  name: Arducam NORD Camera Driver (Playground Port)
+
+tests:
+  drivers.video.arducam_nord.build:
+    build_only: true
+    tags:
+      - video
+      - camera
+      - drivers
+    platform_allow:
+      - nrf5340dk/nrf5340/cpuapp_ns   # Non-secure target (your main one)
+      - nrf5340dk/nrf5340/cpuapp      # Optional: add secure if you test it
+    integration_platforms:
+      - nrf5340dk/nrf5340/cpuapp_ns
+    extra_args:
+      - DTC_OVERLAY_FILE=boards/nrf5340dk_nrf5340_cpuapp_ns.overlay   # Your custom overlay
+      - SHIELD=nrf7002ek   # Enable Wi-Fi shield if testing with EK
+

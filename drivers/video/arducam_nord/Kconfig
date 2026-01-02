@@ -1,0 +1,7 @@
+config ARDUCAM_NORD
+    bool "ArduCAM NORD SPI Camera driver"
+    depends on SPI && VIDEO
+    default n
+    help
+      Enable support for the ArduCAM NORD SPI camera.
+      Uses Zephyr Video API (V4L2-style). Communicates over SPI.
