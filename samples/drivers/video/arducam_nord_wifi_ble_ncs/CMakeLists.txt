@@ -5,14 +5,15 @@
 #
 
 cmake_minimum_required(VERSION 3.20.0)
+
 # Add before find_package(Zephyr ...)
 list(APPEND ZEPHYR_EXTRA_MODULES C:/ncs/v2.7.0/modules/arducam-ble-wifi)  # Replace with your exact path; use forward slashes for CMake compatibility
-
+# Set SHIELD BEFORE find_package(Zephyr)
+set(SHIELD nrf7002ek)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(WiFi_BLE_Camera)
-# Optional: Permanently enable the nRF7002 EK shield
-set(SHIELD nrf7002ek)
+
 FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE ${app_sources})
 target_include_directories(app PRIVATE include)
