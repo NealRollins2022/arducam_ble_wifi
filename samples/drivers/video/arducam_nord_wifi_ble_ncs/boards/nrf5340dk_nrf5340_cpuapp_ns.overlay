@@ -19,6 +19,7 @@
  arducam0: arducam@0 {
         compatible = "arducam,nord";
         reg = <0>;
+        label = "arducam0";   /* <-- Critical for DT_NODELABEL(arducam0) in code */
         spi-max-frequency = <8000000>;
         status = "okay";
     
