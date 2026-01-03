@@ -142,7 +142,7 @@ static const struct video_driver_api arducam_mega_driver_api = {
 
 /* Device instance declaration */
 static struct arducam_mega_data arducam_mega_data_0;
-static const struct arducam_nord_config arducam_nord_config_0 = {
+static const struct arducam_mega_config arducam_mega_config_0 = {
     .bus = SPI_DT_SPEC_GET(DT_NODELABEL(spi1), SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_TRANSFER_MSB, 0),
 };
 
