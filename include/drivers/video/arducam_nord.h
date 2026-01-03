@@ -1,8 +1,8 @@
-#ifndef ZEPHYR_DRIVERS_VIDEO_ARDUCAM_MEGA_H_
-#define ZEPHYR_DRIVERS_VIDEO_ARDUCAM_MEGA_H_
+#ifndef ZEPHYR_DRIVERS_VIDEO_ARDUCAM_NORD_H_
+#define ZEPHYR_DRIVERS_VIDEO_ARDUCAM_NORD_H_
 
 #include <zephyr/device.h>
-#include <zephyr/drivers/video.h>
+#include <drivers/video.h>
 #include <zephyr/drivers/spi.h>
 #include <zephyr/kernel.h>
 #include <stdint.h>
@@ -87,4 +87,4 @@ struct arducam_mega_data {
 /* Public APIs */
 int arducam_mega_get_info(const struct device *dev, struct arducam_mega_info *info);
 
-#endif /* ZEPHYR_DRIVERS_VIDEO_ARDUCAM_MEGA_H_ */
+#endif /* ZEPHYR_DRIVERS_VIDEO_ARDUCAM_NORD_H_ */
