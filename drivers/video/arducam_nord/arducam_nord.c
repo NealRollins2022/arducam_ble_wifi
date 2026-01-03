@@ -1043,4 +1043,5 @@ static int arducam_mega_init(const struct device *dev)
                   &arducam_mega_cfg_##inst, POST_KERNEL, CONFIG_VIDEO_INIT_PRIORITY,   \
                   &arducam_mega_driver_api);
 
+
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_MEGA_INIT)
