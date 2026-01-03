@@ -27,7 +27,7 @@
 
 #include <zephyr/types.h>
 
-#include <zephyr/drivers/video-controls.h>
+#include <drivers/video-controls.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -329,3 +329,4 @@ __subsystem struct video_driver_api {
  */
 
 #endif /* ZEPHYR_INCLUDE_VIDEO_H_ */
+
