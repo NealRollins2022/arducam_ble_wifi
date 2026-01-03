@@ -1,7 +1,5 @@
 name: arducam_nord
 build:
   cmake: .
-    settings:
+  settings:
     dts_root: .
-
-
