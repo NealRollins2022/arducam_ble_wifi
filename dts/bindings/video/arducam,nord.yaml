@@ -5,4 +5,9 @@ compatible: "arducam,nord"
 
 include: spi-device.yaml
 
+properties:
+  spi-max-frequency:
+    type: int
+    required: true   # or false if you want it optional
+
 
