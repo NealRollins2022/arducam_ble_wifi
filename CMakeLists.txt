@@ -8,7 +8,7 @@ if(CONFIG_VIDEO_ARDUCAM_NORD)
 
   # Include driver source file (updated path)
   zephyr_library_sources(
-    ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/arducam_mega/arducam_nord.c
+    ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/arducam_nord/arducam_nord.c
   )
 
   # Add drivers/video subdirectory only if it contains a CMakeLists.txt
