@@ -1,0 +1,108 @@
+/**
+ * @file
+ *
+ * @brief Video controls
+ */
+
+#ifndef ZEPHYR_INCLUDE_DRIVERS_VIDEO_CONTROLS_H_
+#define ZEPHYR_INCLUDE_DRIVERS_VIDEO_CONTROLS_H_
+
+/**
+ * @brief Video controls
+ * @defgroup video_controls Video Controls
+ * @ingroup io_interfaces
+ * @{
+ */
+
+#include <zephyr/device.h>
+#include <stddef.h>
+#include <zephyr/kernel.h>
+
+#include <zephyr/types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * @name Control classes
+ * @{
+ */
+#define VIDEO_CTRL_CLASS_GENERIC	0x00000000	/**< Generic class controls */
+#define VIDEO_CTRL_CLASS_CAMERA		0x00010000	/**< Camera class controls */
+#define VIDEO_CTRL_CLASS_MPEG		0x00020000	/**< MPEG-compression controls */
+#define VIDEO_CTRL_CLASS_JPEG		0x00030000	/**< JPEG-compression controls */
+#define VIDEO_CTRL_CLASS_VENDOR		0xFFFF0000	/**< Vendor-specific class controls */
+
+/**
+ * @}
+ */
+
+/**
+ * @name Generic class control IDs
+ * @{
+ */
+/** Mirror the picture horizontally */
+#define VIDEO_CID_HFLIP			(VIDEO_CTRL_CLASS_GENERIC + 0)
+/** Mirror the picture vertically */
+#define VIDEO_CID_VFLIP			(VIDEO_CTRL_CLASS_GENERIC + 1)
+/**
+ * @}
+ */
+
+/**
+ * @name Camera class control IDs
+ * @{
+ */
+#define VIDEO_CID_CAMERA_EXPOSURE_AUTO (VIDEO_CTRL_CLASS_CAMERA + 0)
+#define VIDEO_CID_CAMERA_EXPOSURE      (VIDEO_CTRL_CLASS_CAMERA + 1)
+
+#define VIDEO_CID_CAMERA_GAIN_AUTO (VIDEO_CTRL_CLASS_CAMERA + 2)
+#define VIDEO_CID_CAMERA_GAIN      (VIDEO_CTRL_CLASS_CAMERA + 3)
+
+#define VIDEO_CID_CAMERA_ZOOM      (VIDEO_CTRL_CLASS_CAMERA + 4)
+#define VIDEO_CID_CAMERA_BRIGHTNESS (VIDEO_CTRL_CLASS_CAMERA + 5)
+#define VIDEO_CID_CAMERA_SATURATION (VIDEO_CTRL_CLASS_CAMERA + 6)
+
+#define VIDEO_CID_CAMERA_WHITE_BAL_AUTO (VIDEO_CTRL_CLASS_CAMERA + 7)
+#define VIDEO_CID_CAMERA_WHITE_BAL      (VIDEO_CTRL_CLASS_CAMERA + 8)
+
+#define VIDEO_CID_CAMERA_CONTRAST  (VIDEO_CTRL_CLASS_CAMERA + 9)
+#define VIDEO_CID_CAMERA_COLORBAR  (VIDEO_CTRL_CLASS_CAMERA + 10)
+#define VIDEO_CID_CAMERA_QUALITY   (VIDEO_CTRL_CLASS_CAMERA + 11)
+/**
+ * @}
+ */
+
+/**
+ * @name JPEG-compression class control IDs
+ * @{
+ */
+#define VIDEO_CID_JPEG_COMPRESSION_QUALITY (VIDEO_CTRL_CLASS_JPEG + 0)
+/**
+ * @}
+ */
+
+/**
+ * @name Arducam vendor class control IDs
+ * @{
+ */
+#define VIDEO_CID_ARDUCAM_EV        (VIDEO_CTRL_CLASS_VENDOR + 1)
+#define VIDEO_CID_ARDUCAM_INFO      (VIDEO_CTRL_CLASS_VENDOR + 2)
+#define VIDEO_CID_ARDUCAM_SHARPNESS (VIDEO_CTRL_CLASS_VENDOR + 3)
+#define VIDEO_CID_ARDUCAM_COLOR_FX  (VIDEO_CTRL_CLASS_VENDOR + 4)
+#define VIDEO_CID_ARDUCAM_RESET     (VIDEO_CTRL_CLASS_VENDOR + 5)
+#define VIDEO_CID_ARDUCAM_LOWPOWER  (VIDEO_CTRL_CLASS_VENDOR + 6)
+/**
+ * @}
+ */
+
+#ifdef __cplusplus
+}
+#endif
+
+/**
+ * @}
+ */
+
+#endif /* ZEPHYR_INCLUDE_DRIVERS_VIDEO_CONTROLS_H_ */
