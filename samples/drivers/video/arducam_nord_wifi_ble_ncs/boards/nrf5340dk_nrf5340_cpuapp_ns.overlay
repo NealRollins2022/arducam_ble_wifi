@@ -8,7 +8,7 @@
 };
 	
 &spi1 {
-    label = "spi0";   // <-- ADD THIS LINE — tricks the driver into using spi1 as "spi0"
+    label = "spi1";   // <-- ADD THIS LINE — tricks the driver into using spi1 as "spi0"
     clock-frequency = <8000000>;
     compatible = "nordic,nrf-spim";
 	status = "okay";
