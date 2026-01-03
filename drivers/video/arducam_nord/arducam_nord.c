@@ -2,7 +2,7 @@
 
 #include <drivers/video/arducam_nord.h>
 #include <zephyr/device.h>
-#include <zephyr/drivers/video.h>
+#include <drivers/video.h>
 #include <zephyr/drivers/spi.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
