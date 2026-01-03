@@ -498,7 +498,7 @@ int main(void)
 	k_sleep(K_SECONDS(1));
 	printk("Starting %s with CPU frequency: %d MHz\n", CONFIG_BOARD, SystemCoreClock / MHZ(1));
 
-	video = DEVICE_DT_GET(DT_NODELABEL(arducam@0));
+	video = DEVICE_DT_GET(DT_NODELABEL(arducam0));
 
 	if (!device_is_ready(video))
 	{
