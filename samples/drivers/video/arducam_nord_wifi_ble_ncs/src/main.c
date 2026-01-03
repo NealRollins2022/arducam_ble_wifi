@@ -18,7 +18,7 @@ LOG_MODULE_REGISTER(WiFiCam, CONFIG_LOG_DEFAULT_LEVEL);
 #include <stdio.h>
 #include <zephyr/device.h>
 #include <zephyr/kernel.h>
-#include <zephyr/drivers/video.h>
+#include <drivers/video.h>
 #include <drivers/video/arducam_nord.h>
 
 #include "app_bluetooth.h"
