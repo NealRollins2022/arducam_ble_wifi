@@ -9,10 +9,7 @@ target_include_directories(zephyr_interface BEFORE INTERFACE
 zephyr_library_sources(
     drivers/video/arducam_nord/arducam_nord.c
 )
-# Add VIDEO core only if not already in the build
-if(CONFIG_VIDEO)
-  add_subdirectory(${ZEPHYR_BASE}/drivers/video drivers_video)
-endif()
+
 
 # REMOVE THIS BLOCK — it is causing duplicate addition of the source
 # if(EXISTS ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/CMakeLists.txt)
