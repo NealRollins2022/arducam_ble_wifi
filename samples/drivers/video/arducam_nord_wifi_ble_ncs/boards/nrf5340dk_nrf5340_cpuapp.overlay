@@ -8,22 +8,21 @@
 };
 	
 &spi1 {
-    clock-frequency = <8000000>;
-    compatible = "nordic,nrf-spim";
-	status = "okay";
-	pinctrl-0 = <&spi1_default>;
-	pinctrl-1 = <&spi1_sleep>;
-	pinctrl-names = "default", "sleep";
-	   cs-gpios = <&gpio0 25 GPIO_ACTIVE_LOW>;
+    label = "spi1";   // <-- KEEP THIS — matches DT_NODELABEL(spi1) in driver
 
- arducam0: arducam@0 {
+    status = "okay";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 25 GPIO_ACTIVE_LOW>;
+
+    arducam0: arducam@0 {
         compatible = "arducam,nord";
         reg = <0>;
         spi-max-frequency = <8000000>;
+        label = "arducam0";   // for main.c
         status = "okay";
-    
-     
-};
+    };
 };
 &pinctrl {
 	spi1_default: spi1_default {
