@@ -14,6 +14,7 @@ tests:
       - nrf5340dk/nrf5340/cpuapp      # Optional: add secure if you test it
     integration_platforms:
       - nrf5340dk/nrf5340/cpuapp_ns
+      - nrf5340dk/nrf5340/cpuapp
     extra_args:
       - DTC_OVERLAY_FILE=boards/nrf5340dk_nrf5340_cpuapp_ns.overlay   # Your custom overlay
       - SHIELD=nrf7002ek   # Enable Wi-Fi shield if testing with EK
