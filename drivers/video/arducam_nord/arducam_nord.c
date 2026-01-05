@@ -77,10 +77,10 @@ LOG_MODULE_REGISTER(nord_camera);
 #define AC_STACK_SIZE 4096
 #define AC_PRIORITY 5
 
-K_THREAD_STACK_DEFINE(nord_ac_stack_area, AC_STACK_SIZE);
+static K_THREAD_STACK_DEFINE(nord_ac_stack_area, AC_STACK_SIZE);
 
-struct k_work_q nord_ac_work_q;
-
+static struct k_work_q nord_ac_work_q;
+struct k_work_q nord_ac_work_q; // workqueue
 /**
  * @struct mega_sdk_data
  * @brief Basic information of the camera firmware
@@ -974,8 +974,8 @@ static const struct video_driver_api arducam_nord_driver_api = {
 
 static int arducam_mega_init(const struct device *dev)
 {
-    const struct arducam_nord_config *cfg = dev->config;
-    struct arducam_nord_data *drv_data = dev->data;
+    const struct arducam_mega_config *cfg = dev->config;
+    struct arducam_mega_data *drv_data = dev->data;
 
     struct video_format fmt;
     int ret = 0;
@@ -1001,7 +1001,7 @@ static int arducam_mega_init(const struct device *dev)
     ret = arducam_mega_check_connection(dev);
 
     if (ret) {
-        LOG_ERR("arducam mega camera not connection.\n");
+        LOG_ERR("arducam nord camera not connection.\n");
         return ret;
     }
 
@@ -1011,7 +1011,7 @@ static int arducam_mega_init(const struct device *dev)
     drv_data->ver.version =
         arducam_mega_read_reg(&cfg->bus, CAM_REG_FPGA_VERSION_NUMBER) & 0xfF;
 
-    LOG_INF("arducam mega ver: %d-%d-%d \t %x", drv_data->ver.year, drv_data->ver.month,
+    LOG_INF("arducam nord ver: %d-%d-%d \t %x", drv_data->ver.year, drv_data->ver.month,
         drv_data->ver.day, drv_data->ver.version);
 
     /* set default/init format 96x96 RGB565 */
@@ -1029,7 +1029,7 @@ static int arducam_mega_init(const struct device *dev)
 }
 
 #define ARDUCAM_NORD_INIT(inst)                                                                    \
-    static const struct arducam_nord_config arducam_nord_cfg_##inst = {                        \
+    static const struct arducam_mega_config arducam_nord_cfg_##inst = {                        \
         .bus = SPI_DT_SPEC_INST_GET(inst,                                                  \
                         SPI_OP_MODE_MASTER | SPI_WORD_SET(8) |                 \
                             SPI_CS_ACTIVE_HIGH | SPI_LINES_SINGLE |        \
@@ -1037,7 +1037,7 @@ static int arducam_mega_init(const struct device *dev)
                         0),                                                    \
     };                                                                                         \
                                                                                                    \
-    static struct arducam_nord_data arducam_nord_data_##inst;                                  \
+    static struct arducam_mega_data arducam_nord_data_##inst;                                  \
                                                                                                    \
     DEVICE_DT_INST_DEFINE(inst, &arducam_mega_init, NULL, &arducam_nord_data_##inst,           \
                   &arducam_nord_cfg_##inst, POST_KERNEL, CONFIG_VIDEO_INIT_PRIORITY,   \
@@ -1045,6 +1045,7 @@ static int arducam_mega_init(const struct device *dev)
 
 
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
 
 
