@@ -80,7 +80,7 @@ LOG_MODULE_REGISTER(nord_camera);
 static K_THREAD_STACK_DEFINE(nord_ac_stack_area, AC_STACK_SIZE);
 
 static struct k_work_q nord_ac_work_q;
-struct k_work_q nord_ac_work_q; // workqueue
+
 /**
  * @struct mega_sdk_data
  * @brief Basic information of the camera firmware
@@ -1045,6 +1045,7 @@ static int arducam_mega_init(const struct device *dev)
 
 
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
 
 
