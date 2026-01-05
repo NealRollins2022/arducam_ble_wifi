@@ -974,8 +974,8 @@ static const struct video_driver_api arducam_nord_driver_api = {
 
 static int arducam_mega_init(const struct device *dev)
 {
-    const struct arducam_mega_config *cfg = dev->config;
-    struct arducam_mega_data *drv_data = dev->data;
+    const struct arducam_nord_config *cfg = dev->config;
+    struct arducam_nord_data *drv_data = dev->data;
 
     struct video_format fmt;
     int ret = 0;
@@ -1045,5 +1045,6 @@ static int arducam_mega_init(const struct device *dev)
 
 
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
 
