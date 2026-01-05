@@ -1044,5 +1044,6 @@ static int arducam_mega_init(const struct device *dev)
                   &arducam_nord_driver_api);
 
 
-DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_MEGA_INIT)
+DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
