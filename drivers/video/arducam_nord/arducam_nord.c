@@ -935,7 +935,7 @@ static int arducam_mega_set_ctrl(const struct device *dev, unsigned int cid, voi
     return ret;
 }
 
-int arducam_mega_get_info(const struct device *dev, struct arducam_mega_info *info)
+int arducam_nord_get_info(const struct device *dev, struct arducam_mega_info *info)
 {
     struct arducam_mega_data *drv_data = dev->data;
 
@@ -950,7 +950,7 @@ static int arducam_mega_get_ctrl(const struct device *dev, unsigned int cid, voi
 
     switch (cid) {
     case VIDEO_CID_ARDUCAM_INFO:
-        ret |= arducam_mega_get_info(dev, (struct arducam_mega_info *)value);
+        ret |= arducam_nord_get_info(dev, (struct arducam_mega_info *)value);
         break;
     default:
         return -ENOTSUP;
@@ -1045,6 +1045,7 @@ static int arducam_mega_init(const struct device *dev)
 
 
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
 
 
