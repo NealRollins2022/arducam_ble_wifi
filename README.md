@@ -1,4 +1,4 @@
-# ArduCAM Mega Zephyr Module for nRF5340
+# ArduCAM NORD Zephyr Module for nRF5340 + 7002 ek shield 
 
 This module adds support for the ArduCAM Mega SPI camera in the nRF Connect SDK.
 
