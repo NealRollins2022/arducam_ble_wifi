@@ -498,13 +498,15 @@ int main(void)
 	k_sleep(K_SECONDS(1));
 	printk("Starting %s with CPU frequency: %d MHz\n", CONFIG_BOARD, SystemCoreClock / MHZ(1));
 
-	video = DEVICE_DT_GET(DT_NODELABEL(arducam0));
+	#if CONFIG_CPUAPP && CONFIG_VIDEO_ARDUCAM_NORD
+    video = DEVICE_DT_GET(DT_NODELABEL(arducam0));
 
-	if (!device_is_ready(video))
-	{
-		LOG_ERR("Video device %s not ready.", video->name);
-		return -1;
-	}
+    if (!device_is_ready(video)) {
+    LOG_ERR("Video device %s not ready.", video->name);
+    return -1;
+    }
+     #endif
+
 
 	video_stream_stop(video);
 	LOG_INF("Device %s is ready!", video->name);
