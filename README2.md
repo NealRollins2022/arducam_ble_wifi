@@ -1,6 +1,6 @@
-# Off-Tree ArduCAM Mega Zephyr Module (nRF5340)
+# Off-Tree ArduCAM Mega Zephyr Module (nRF5340+ 7002ek shield)
 
-This repository contains an **off-tree port** of the ArduCAM Mega SPI driver and a minimal sample program for the **nRF5340 +shield = nRF7002DK** using the **nRF Connect SDK / Zephyr**.
+This repository contains an **off-tree port** of the ArduCAM Mega SPI driver and a minimal sample program for the **nRF5340 + 7002ek shield = nRF7002DK** using the **nRF Connect SDK / Zephyr**.
 
 It allows you to capture images from an **ArduCAM Mega SPI camera** on Nordic boards, even if you are new to Zephyr or `west`.
 
