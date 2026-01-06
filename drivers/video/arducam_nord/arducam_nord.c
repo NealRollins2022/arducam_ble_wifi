@@ -13,7 +13,7 @@
 #include <zephyr/drivers/spi.h>
 
 #include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(nord_camera, CONFIG_VIDEO_LOG_LEVEL);
+LOG_MODULE_REGISTER(nord_camera);
 
 
 #define ARDUCHIP_FIFO   0x04 /* FIFO and I2C control */
@@ -1045,6 +1045,7 @@ static int arducam_mega_init(const struct device *dev)
 
 
 DT_INST_FOREACH_STATUS_OKAY(ARDUCAM_NORD_INIT)
+
 
 
 
