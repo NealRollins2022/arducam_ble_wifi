@@ -176,7 +176,7 @@ enum MEGA_RESOLUTION {
  * @struct arducam_mega_info
  * @brief Some information about mega camera
  */
-struct arducam_nord_info {
+struct arducam_mega_info {
     int support_resolution;
     int support_special_effects;
     unsigned long exposure_value_max;
@@ -194,4 +194,5 @@ struct arducam_nord_info {
 #endif
 
 #endif /* ZEPHYR_INCLUDE_DRIVERS_VIDEO_ARDUCAM_NORD_H_ */
+
 
