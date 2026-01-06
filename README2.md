@@ -150,12 +150,7 @@ python WiFi_Cam_Host_UDP.py
 ![WiFiCamHost](images/WiFiCamHost.png)
 
 
-## Extra Documentation
 
-- [Installation Guide (Off-Tree)](docs/OFF_TREE_INSTALL.md) — step-by-step, beginner-friendly instructions.  
-- [Porting Notes & Pitfalls](docs/PORTING_NOTES.md) — major logic decisions and gotchas during this off-tree port.
-
----
 
 ## License
 
