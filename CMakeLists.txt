@@ -1,10 +1,10 @@
 # CMakeLists.txt for Arducam module (C:\ncs\v2.7.0\modules\arducam\CMakeLists.txt)
-
-if(CONFIG_VIDEO_ARDUCAM_NORD AND CONFIG_CPUAPP)
-  # Add include directory for drivers/video/arducam_nord.h
   target_include_directories(zephyr_interface BEFORE INTERFACE
     ${ZEPHYR_CURRENT_MODULE_DIR}/include
   )
+if(CONFIG_VIDEO_ARDUCAM_NORD AND CONFIG_CPUAPP)
+  # Add include directory for drivers/video/arducam_nord.h
+
 
   # Include driver source file (updated path)
   zephyr_library_sources(
