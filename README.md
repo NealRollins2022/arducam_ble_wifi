@@ -39,14 +39,9 @@ west build -b nrf5340dk_nrf5340_cpuapp_ns modules/arducam/samples/drivers/video/
 west flash
 ```
 
-## Expected Output
+## Related Repositories
 
-On successful capture:
+- [devacademy-ncsinter](https://github.com/NordicDeveloperAcademy/ncs-inter) – Course exercises and solutions
+- [Wi-Fi + BLE Image Transfer Demo](https://github.com/NordicPlayground/nrf70-wifi-ble-image-transfer-demo) – Nordic’s image transfer example for nRF70
+- [nRF Connect SDK](https://github.com/nrfconnect/sdk-nrf) – Official Nordic SDK repository
 
-```
-<inf> app: Starting capture...
-<inf> app: Capture complete, FIFO length = 12345 bytes
-<inf> app: FIFO[0:16]: 0xFF 0xD8 0xFF 0xE0 ...
-```
-
-The `FF D8 FF E0` sequence confirms a valid JPEG header.
