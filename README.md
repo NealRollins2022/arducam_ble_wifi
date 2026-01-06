@@ -30,7 +30,7 @@ west update
 3. Build the sample:
 
 ```bash
-west build -b nrf5340dk_nrf5340_cpuapp_ns modules/arducam/samples/drivers/video/arducam_mega
+west build -b nrf5340dk_nrf5340_cpuapp_ns modules/arducam_nord_wifi_ble_ncs
 ```
 
 4. Flash:
