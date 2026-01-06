@@ -1,4 +1,4 @@
-config VIDEO_ARDUCAM_MEGA
+config VIDEO_ARDUCAM_NORD
     bool                  # ← Critical: no prompt string (hidden symbol)
     default y             # ← Unconditional — always on when module is included
     select VIDEO
@@ -7,4 +7,4 @@ config VIDEO_ARDUCAM_MEGA
       Arducam Mega SPI camera driver (off-tree module).
       Automatically enables the VIDEO and SPI subsystems.
       The driver will only function if a compatible devicetree node
-      (compatible = "arducam,mega"; status = "okay";) is present.
+      (compatible = "arducam,nord"; status = "okay";) is present.
