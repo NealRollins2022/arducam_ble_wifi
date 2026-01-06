@@ -15,10 +15,10 @@ This module adds support for the ArduCAM Mega SPI camera in the nRF Connect SDK.
 1. Add this module to your NCS workspace via `west.yml`:
 
 ```yaml
-- name: arducam_AI_module
-  remote: arducam
+- name: arducam_ble_wifi
+  remote: arducam_ble_wifi
   revision: main
-  path: modules/arducam
+  path: modules/arducam_ble_wifi
 ```
 
 2. Update your workspace:
