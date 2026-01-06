@@ -1,7 +1,9 @@
-config ARDUCAM_NORD
-    bool "ArduCAM NORD SPI Camera driver"
-    depends on SPI && VIDEO
-    default n
+config VIDEO_ARDUCAM_MEGA
+    bool                  # ← Critical: NO prompt string → hidden symbol
+    default y if DT_HAS_ARDUCAM_MEGA_ENABLED
+    select VIDEO
+    select SPI
+    depends on DT_HAS_ARDUCAM_MEGA_ENABLED
     help
-      Enable support for the ArduCAM NORD SPI camera.
-      Uses Zephyr Video API (V4L2-style). Communicates over SPI.
+      Arducam Mega SPI camera driver (off-tree module).
+      Automatically enables VIDEO and SPI subsystems.
