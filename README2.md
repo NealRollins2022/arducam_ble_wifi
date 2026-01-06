@@ -4,99 +4,63 @@ This repository contains an **off-tree port** of the ArduCAM Mega SPI driver and
 
 It allows you to capture images from an **ArduCAM Mega SPI camera** on Nordic boards, even if you are new to Zephyr or `west`.
 
----
+nrf52-ble-image-transfer-demo
+=============================
+This demo uses a camera sensor to capture a JPG image, and send it over BLE to a phone app. 
+The image can be captured either in a single shot mode, or in a streaming mode where it will take pictures as fast as the BLE link can keep up. 
 
-## Features
+The resolution can be changed in 6 steps between 160x120 to 1600x1200, and an estimate of the transfer speed can be calculated based on the time it takes to transfer each image. 
 
-- Capture JPEG images using the **ArduCAM Mega SPI camera**.
-- Manual CS GPIO for precise SPI timing.
-- Minimal capture demo:
-  - Triggers a capture
-  - Polls until complete
-  - Reads FIFO length
-  - Logs first 16 bytes of image (JPEG header expected)
+The example is set up to request different BLE phy's, and can be used to demonstrate the difference between 1Mbps and 2Mbps BLE modes on phones that support it. 
 
----
+The Android companion app can be found here:     
+[https://github.com/NordicSemiconductor/Android-Image-Transfer-Demo](https://github.com/NordicSemiconductor/Android-Image-Transfer-Demo)
 
-## Quick Start (Baby-Proof)
+Requirements
+------------
+- nRF5 SDK version 16.0.0
+- nRF52 DK (PCA10040) or nRF52840 DK (PCA10056)
+- Arducam Mini 2MP camera module (OV2640)
+	- [https://www.amazon.com/Arducam-Module-Megapixels-Arduino-Mega2560/dp/B012UXNDOY](https://www.amazon.com/Arducam-Module-Megapixels-Arduino-Mega2560/dp/B012UXNDOY "Amazon link")
 
-### Step 1 — Create or go to a Zephyr workspace
+Hardware setup
+--------------
 
-A workspace is just a folder where your projects live.  
+### nRF52840 using front connector
+<img src="https://github.com/NordicSemiconductor/nrf52-ble-image-transfer-demo/blob/master/pics/840_cam_front2.jpg" width="600">
 
-```bash
-mkdir ~/zephyr-workspace
-cd ~/zephyr-workspace
-```
+Note: This requires solder bridges SB10-15 and SB20-25 to be soldered/cut, as illustrated here:
+<img src="https://github.com/NordicSemiconductor/nrf52-ble-image-transfer-demo/blob/master/pics/grav_sb.PNG" width="300">
 
-> On Windows PowerShell, replace with `mkdir C:\zephyr-workspace` and `cd C:\zephyr-workspace`.
+### nRF52840 using side connector
+<img src="https://github.com/NordicSemiconductor/nrf52-ble-image-transfer-demo/blob/master/pics/840_cam_side.jpg" width="600">
 
----
+### nRF52832 using side connector
+<img src="https://github.com/NordicSemiconductor/nrf52-ble-image-transfer-demo/blob/master/pics/832_with_cam.jpg" width="600">
 
-### Step 2 — Add this off-tree module
+SoftDevice version
+------------------
 
-Open (or create) `west.yml` in your workspace and add:
+For the nRF52840 use the S140 v7.0.1, provided with SDK v16.0.0. 
 
-```yaml
-projects:
-  - name: arducam_offtree
-    remote: <your-repo-url>
-    revision: main
-    path: modules/arducam
-```
+For the nRF52832 use the S132 v7.0.1, provided with SDK v16.0.0.
 
-> Replace `<your-repo-url>` with the URL to this repository.
+Note
+----
 
----
+The project may need modifications to work with other versions or other boards. 
 
-### Step 3 — Update the workspace
+To compile it, clone the repository in the [SDK]/examples/ble_peripheral folder.
 
-```bash
-west update
-```
+About this project
+------------------
+This application is one of several applications that has been built by the support team at Nordic Semiconductor, as a demo of some particular feature or use case. It has not necessarily been thoroughly tested, so there might be unknown issues. It is hence provided as-is, without any warranty. 
 
-> Downloads the ArduCAM module and any dependencies.
+However, in the hope that it still may be useful also for others than the ones we initially wrote it for, we've chosen to distribute it here on GitHub. 
 
----
+The application is built to be used with the official nRF5 SDK, that can be downloaded from developer.nordicsemi.com
 
-### Step 4 — Build the sample application
-
-```bash
-west build -b nrf5340dk_nrf5340_cpuapp_ns modules/arducam/samples/drivers/video/arducam_mega
-```
-
-- `-b nrf5340dk_nrf5340_cpuapp_ns` → selects CPU app for nRF5340.  
-- Last argument → path to the sample program.
-
----
-
-### Step 5 — Flash the board
-
-1. Connect the nRF5340 DK via USB.  
-2. Run:
-
-```bash
-west flash
-```
-
-> The board will reboot after flashing.
-
----
-
-### Step 6 — Verify the capture
-
-Open a **serial terminal** (e.g., PuTTY, minicom) to the board’s COM port.  
-Expected output:
-
-```
-<inf> app: Starting capture...
-<inf> app: Capture complete, FIFO length = 12345 bytes
-<inf> app: FIFO[0:16]: 0xFF 0xD8 0xFF 0xE0 ...
-```
-
-- `0xFF 0xD8 0xFF 0xE0` confirms a valid JPEG header.
-
----
+Please post any questions about this project on [devzone](https://devzone.nordicsemi.com)
 
 ## Extra Documentation
 
