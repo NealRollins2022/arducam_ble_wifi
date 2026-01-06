@@ -40,7 +40,12 @@ west flash
 ```
 
 ## Related Repositories
+## Extra Documentation
 
+- [Installation Guide (Off-Tree)](docs/OFF_TREE_INSTALL.md) — step-by-step, beginner-friendly instructions.  
+- [Porting Notes & Pitfalls](docs/PORTING_NOTES.md) — major logic decisions and gotchas during this off-tree port.
+
+---
 - [devacademy-ncsinter](https://github.com/NordicDeveloperAcademy/ncs-inter) – Course exercises and solutions
 - [Wi-Fi + BLE Image Transfer Demo](https://github.com/NordicPlayground/nrf70-wifi-ble-image-transfer-demo) – Nordic’s image transfer example for nRF70
 - [nRF Connect SDK](https://github.com/nrfconnect/sdk-nrf) – Official Nordic SDK repository
