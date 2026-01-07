@@ -2,7 +2,7 @@ config VIDEO_ARDUCAM_NORD
     bool                  # ← Critical: no prompt string (hidden symbol)
     default y             # ← Unconditional — always on when module is included
     select VIDEO
-    select SPI
+    depends on SPI
     help
       Arducam Mega SPI camera driver (off-tree module).
       Automatically enables the VIDEO and SPI subsystems.
