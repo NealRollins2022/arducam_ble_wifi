@@ -24,9 +24,9 @@ This Zephyr/NCS module provides **support for the ArduCAM Mega SPI camera** on t
 
 | Image                                         | Description                                   |
 | --------------------------------------------- | --------------------------------------------- |
-| ![nRF7002 beside box](images/IMG_1241.jpeg) | nRF7002 EK Shield next to its box             |
-| ![nRF5340 beside box](images/IMG_1241.jpeg) | nRF5340 DK beside its box                     |
-| ![Scale with ruler](images/IMG_1241.jpeg)   | Physical scale reference with ruler           |
-| ![Backside header](images/IMG_1241.jpeg)    | Backside showing custom header for SPI access |
+| ![nRF7002 beside box](images/IMG_1248.jpeg) | nRF7002 EK Shield next to its box             |
+| ![nRF5340 beside box](images/IMG_1249.jpeg) | nRF5340 DK beside its box                     |
+| ![Scale with ruler](images/IMG_1247.jpeg)   | Physical scale reference with ruler           |
+| ![Backside header](images/IMG_1245.jpeg)    | Backside showing custom header for SPI access |
 | ![SPI wiring](images/IMG_1241.jpeg)           |                                               |
 
