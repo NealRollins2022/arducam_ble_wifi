@@ -52,6 +52,14 @@ extern struct sockaddr_in pc_addr;
 #define SET_IMAGE_QUALITY 0X50
 #define SET_LOWPOWER_MODE 0X60
 
+#define NUM_BUFFERS 3
+#define MAX_SPI_BURST 4096
+#define DMA_BUF_SIZE  (MAX_SPI_BURST + 8)
+
+static uint8_t dma_bufs[NUM_BUFFERS][DMA_BUF_SIZE] __aligned(4)
+                         __attribute__((section(".dma")));
+
+struct video_buffer video_buffers[NUM_BUFFERS];
 /*
 ** Arducam mega communication protocols
 ** https://www.arducam.com/docs/arducam-mega/arducam-mega-getting-started/packs/HostCommunicationProtocol.html
@@ -520,17 +528,12 @@ int main(void)
 	}
 
 	net_util_set_callback(socket_rx_callback);
-
-	/* Alloc video buffers and enqueue for capture */
-	for (int i = 0; i < ARRAY_SIZE(buffers); i++)
-	{
-		buffers[i] = video_buffer_alloc(4096);
-		if (buffers[i] == NULL)
-		{
-			LOG_ERR("Unable to alloc video buffer");
-			return -1;
-		}
-		video_enqueue(video, VIDEO_EP_OUT, buffers[i]);
+	
+	/* Initialize buffers */
+	for (int i = 0; i < NUM_BUFFERS; i++) {
+	    video_buffers[i].buffer  = dma_bufs[i];
+	    video_buffers[i].size    = DMA_BUF_SIZE;
+	    video_enqueue(video, VIDEO_EP_OUT, &video_buffers[i]);
 	}
 
 	k_timer_start(&m_timer_count_bytes, K_MSEC(1000), K_MSEC(1000));
