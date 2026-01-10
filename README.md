@@ -28,5 +28,5 @@ This Zephyr/NCS module provides **support for the ArduCAM Mega SPI camera** on t
 | ![nRF5340 beside box](images/nrf5340_box.jpg) | nRF5340 DK beside its box                     |
 | ![Scale with ruler](images/scale_ruler.jpg)   | Physical scale reference with ruler           |
 | ![Backside header](images/back_header.jpg)    | Backside showing custom header for SPI access |
-| ![SPI wiring](images/spi_wirin                |                                               |
+| ![SPI wiring](images/spi_wirin.jpg)           |                                               |
 
