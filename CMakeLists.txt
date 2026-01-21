@@ -2,7 +2,7 @@
   target_include_directories(zephyr_interface BEFORE INTERFACE
     ${ZEPHYR_CURRENT_MODULE_DIR}/include
   )
-if(CONFIG_VIDEO_ARDUCAM_NORD AND CONFIG_CPUAPP)
+if(CONFIG_VIDEO_ARDUCAM_NORD )
   # Add include directory for drivers/video/arducam_nord.h
 
 
