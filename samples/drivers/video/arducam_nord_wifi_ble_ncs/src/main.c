@@ -497,7 +497,7 @@ void socket_rx_callback(uint8_t *data, uint16_t len)
 int main(void)
 {
 	int ret;
-	struct video_buffer *buffers[3];
+
 #if defined(CLOCK_FEATURE_HFCLK_DIVIDE_PRESENT) || NRF_CLOCK_HAS_HFCLK192M
 
 	/* hardcode to 128MHz */
