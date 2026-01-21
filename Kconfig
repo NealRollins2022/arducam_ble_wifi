@@ -1,5 +1,5 @@
 config VIDEO_ARDUCAM_NORD
-   bool "Arducam Mega CMOS digital image sensor"
+   bool "Arducam NORD CMOS digital image sensor"
 	select SPI
 	depends on DT_HAS_ARDUCAM_NORD_ENABLED
 	default y
