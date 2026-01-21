@@ -1,10 +1,7 @@
 config VIDEO_ARDUCAM_NORD
-    bool                  # ← Critical: no prompt string (hidden symbol)
-    default y             # ← Unconditional — always on when module is included
-    select VIDEO
-    depends on SPI
-    help
-      Arducam Mega SPI camera driver (off-tree module).
-      Automatically enables the VIDEO and SPI subsystems.
-      The driver will only function if a compatible devicetree node
-      (compatible = "arducam,nord"; status = "okay";) is present.
+   bool "Arducam Mega CMOS digital image sensor"
+	select SPI
+	depends on DT_HAS_ARDUCAM_NORD_ENABLED
+	default y
+	help
+	  Enable driver for Arducam Mega CMOS digital image sensor device.
