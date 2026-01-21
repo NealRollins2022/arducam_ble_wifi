@@ -1,4 +1,4 @@
-# CMakeLists.txt for Arducam module (C:\ncs\v3.2.1\modules\arducam-ble-wifi\CMakeLists.txt)
+# CMakeLists.txt for Arducam module (C:\ncs\v2.7.0\modules\arducam-ble-wifi\CMakeLists.txt)
   target_include_directories(zephyr_interface BEFORE INTERFACE
     ${ZEPHYR_CURRENT_MODULE_DIR}/include
   )
