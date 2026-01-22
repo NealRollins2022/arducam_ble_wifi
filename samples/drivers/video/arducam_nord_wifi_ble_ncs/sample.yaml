@@ -1,7 +1,7 @@
 
 sample:
-  description: Build test for Arducam NORD SPI camera driver (Nordic Playground off-tree port) on nRF5340 DK.
-  name: Arducam NORD Camera Driver (Playground Port)
+  description: Build test for Arducam NORD SPI camera driver (Playground Port)
+  name: Arducam NORD Camera Driver
 
 common:
   sysbuild: true
@@ -19,11 +19,12 @@ tests:
       - sysbuild
 
     platform_allow:
-      - nrf5340dk/nrf5340/cpuapp
+      - nrf7002dk_nrf5340/cpuapp
 
     integration_platforms:
-      - nrf5340dk/nrf5340/cpuapp
+      -  nrf7002dk_nrf5340/cpuapp
 
     extra_args:
-      - SHIELD=nrf7002ek
-      - DTC_OVERLAY_FILE=boards/nrf5340dk_nrf5340_cpuapp.overlay
+      - CONF_FILE=boards/nrf7002dk_nrf5340_cpuapp.conf
+      - DTC_OVERLAY_FILE=boards/nrf7002dk_nrf5340_cpuapp.overlay
+
