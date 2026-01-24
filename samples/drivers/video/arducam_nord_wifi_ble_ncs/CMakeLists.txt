@@ -7,7 +7,7 @@
 cmake_minimum_required(VERSION 3.20.0)
 
 # Add before find_package(Zephyr ...)
-list(APPEND ZEPHYR_EXTRA_MODULES C:/ncs/v3.2.1/modules/arducam-ble-wifi)  # Replace with your exact path; use forward slashes for CMake compatibility
+list(APPEND ZEPHYR_EXTRA_MODULES "C:/ncs/v3.2.1/modules/arducam_ble_wifi") # Replace with your exact path; use forward slashes for CMake compatibility
 
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
