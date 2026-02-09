@@ -1,7 +1,17 @@
 config VIDEO_ARDUCAM_NORD
-   bool "Arducam NORD CMOS digital image sensor"
-	select SPI
-	depends on DT_HAS_ARDUCAM_NORD_ENABLED
-	default y
-	help
-	  Enable driver for Arducam Mega CMOS digital image sensor device.
+    bool "Enable Arducam Mega SPI Camera driver"
+    depends on VIDEO && SPI
+    default n
+    help
+      Enable support for the Arducam Mega SPI camera module.
+      Uses Zephyr Video API (V4L2-style). Communicates over SPI.
+
+if VIDEO_ARDUCAM_NORD
+
+config ARDUCAM_NORD_DEBUG
+    bool "Enable debug logging for Arducam Mega"
+    default n
+    help
+      Enable verbose debug output for the driver.
+
+endif # VIDEO_ARDUCAM_NORD
