@@ -2,14 +2,14 @@
   target_include_directories(zephyr_interface BEFORE INTERFACE
     ${ZEPHYR_CURRENT_MODULE_DIR}/include
   )
-if(CONFIG_VIDEO_ARDUCAM_NORD )
+if(CONFIG_VIDEO_ARDUCAM_NORD  )
   # Add include directory for drivers/video/arducam_nord.h
 
 
-  # Include driver source file (updated path)
-  zephyr_library_sources(
-    ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/arducam_nord/arducam_nord.c
-  )
+zephyr_library_sources_ifdef(
+  DT_HAS_ARDUCAM_NORD_ENABLED
+  drivers/video/arducam_nord/arducam_nord.c
+)
 
   # Add drivers/video subdirectory only if it contains a CMakeLists.txt
   if(EXISTS ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/video/CMakeLists.txt)
