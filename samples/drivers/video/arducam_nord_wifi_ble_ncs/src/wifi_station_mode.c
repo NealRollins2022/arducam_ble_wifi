@@ -22,13 +22,13 @@ LOG_MODULE_REGISTER(wifi_station_mode, CONFIG_LOG_DEFAULT_LEVEL);
 #include <zephyr/net/net_mgmt.h>
 #include <zephyr/net/net_event.h>
 #include <zephyr/net/socket.h>
-#include <net/wifi_mgmt_ext.h>
+#include "wifi_mgmt_ext.h"
 /* For net_sprint_ll_addr_buf */
 #include "net_private.h"
 
 
 /* Include the header file for the Wi-FI credentials library */
-#include <net/wifi_credentials.h>
+#include <zephyr/net/wifi_credentials.h>
 
 #include <dk_buttons_and_leds.h>
 #include <zephyr/logging/log_ctrl.h>
@@ -51,7 +51,7 @@ static struct net_mgmt_event_callback net_mgmt_cb;
 static bool wifi_connected;
 
 static void wifi_mgmt_event_handler(struct net_mgmt_event_callback *cb,
-									uint32_t mgmt_event, struct net_if *iface)
+									uint64_t mgmt_event, struct net_if *iface)
 {
 	switch (mgmt_event)
 	{
@@ -90,7 +90,7 @@ static void on_net_event_dhcp_bound(struct net_mgmt_event_callback *cb)
 
 /* Define the callback function for network events */
 static void net_mgmt_event_handler(struct net_mgmt_event_callback *cb,
-								   uint32_t mgmt_event, struct net_if *iface)
+								   uint64_t mgmt_event, struct net_if *iface)
 {
 	if ((mgmt_event & L3_EVENT_MASK) != mgmt_event)
 	{
