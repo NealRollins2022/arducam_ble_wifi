@@ -56,8 +56,24 @@ extern struct sockaddr_in pc_addr;
 #define MAX_SPI_BURST 4096
 #define DMA_BUF_SIZE  (MAX_SPI_BURST + 8)
 
-static uint8_t dma_bufs[NUM_BUFFERS][DMA_BUF_SIZE] __aligned(4)
-                         __attribute__((section(".dma")));
+/* DMA buffer allocation for Arducam Mega driver */
+/* Works across NCS 2.7 → 3.2.1 and ensures proper alignment and linker section */
+
+#include <zephyr/sys/util.h>   // for Z_ALIGNMENT_CHECK if needed
+
+/* Define macros if missing in older versions */
+#ifndef Z_DMA_ALIGN
+#define Z_DMA_ALIGN __aligned(4)
+#endif
+
+#ifndef Z_DMA_SECTION
+/* Use Zephyr’s recommended DMA section, falls back to .bss.dma */
+#define Z_DMA_SECTION __attribute__((section(".bss.dma")))
+#endif
+
+/* DMA buffers */
+static uint8_t dma_bufs[NUM_BUFFERS][DMA_BUF_SIZE] Z_DMA_ALIGN Z_DMA_SECTION;
+
 
 struct video_buffer video_buffers[NUM_BUFFERS];
 /*
@@ -589,3 +605,4 @@ int main(void)
 	}
 	return 0;
 }
+
