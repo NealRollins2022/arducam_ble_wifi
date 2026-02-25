@@ -93,3 +93,4 @@ int bt_its_send_client_status(struct its_client_status_t *client_status);
 #endif
 
 #endif /* BT_ITS_H_ */
+
