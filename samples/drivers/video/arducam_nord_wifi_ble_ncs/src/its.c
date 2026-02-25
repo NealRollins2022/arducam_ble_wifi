@@ -211,3 +211,4 @@ int bt_its_send_ble_params_info(struct its_ble_params_info_t* ble_params_info)
 						  notify_buf, 1 + sizeof(struct its_ble_params_info_t));
 }
 
+
