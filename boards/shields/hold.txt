@@ -1,0 +1,2 @@
+
+this is a folder to place zepher board from what ever vertion you are builing or custom board you are builing just copy from zepyer folder 
